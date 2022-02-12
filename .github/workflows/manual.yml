@@ -25,7 +25,7 @@ jobs:
       - run: node ${{ github.workspace }}/index.js
       - name: "Set environmental variables"
         run: |
-          echo "TWEET_STATUS=node ${{ github.workspace }}/index.js" >> $GITHUB_ENV
+          echo "TWEET_STATUS=" && node ${{ github.workspace }}/index.js" >> $GITHUB_ENV
 
       - name: "Can use environment variables"
         run: |

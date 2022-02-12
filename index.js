@@ -2334,6 +2334,4 @@ console.log("Wordle " + index + " 1/6");
 console.log("");
 console.log("🟩🟩🟩🟩🟩");
 
-// Wordle 238 1/6
-
-// 🟩🟩🟩🟩🟩
+// TODO: Automatically post using Github Actions and cron schedule

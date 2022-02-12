@@ -11,13 +11,15 @@ on:
     # Inputs the workflow accepts.
     inputs:
       name:
-        description: 'Manually Tweet Wordle'
+        description: "Manually Tweet Wordle"
+        required: false
 
 jobs:
   setup-node:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: ./
       - uses: actions/setup-node@v2
         with:
           node-version: "16"

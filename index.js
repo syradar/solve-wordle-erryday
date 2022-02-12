@@ -2330,8 +2330,7 @@ function getSolution(index, wordList) {
 const today = new Date();
 const index = getIndex(today);
 const wordToday = getSolution(index, words);
-console.log("Wordle " + index + " 1/6");
-console.log("");
-console.log("🟩🟩🟩🟩🟩");
+
+process.stdout.write("Wordle " + index + " 1/6\n\n🟩🟩🟩🟩🟩")
 
 // TODO: Automatically post using Github Actions and cron schedule

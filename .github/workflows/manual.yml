@@ -23,22 +23,30 @@ jobs:
         with:
           node-version: "16"
       - run: node ${{ github.workspace }}/index.js
-#      - name: Send Tweet Action
- #       # You may pin to the exact commit or the version.
+      - name: "Set environmental variables"
+        run: |
+          echo "TWEET_STATUS=node ${{ github.workspace }}/index.js" >> $GITHUB_ENV
+
+      - name: "Can use environment variables"
+        run: |
+          echo "Working variable from variable: $TWEET_STATUS"
+  #       # You may pin to the exact commit or the version.
   #      # uses: ethomson/send-tweet-action@288f9339e0412e3038dce350e0da5ecdf12133a6
-   #     uses: ethomson/send-tweet-action@v1.0.0
-    #    with:
-     #     # The status ("tweet") to post to twitter.
-      #    status: "Wordle..."
-       #   # Consumer API key, available in the "Keys and tokens" section of your application in the Twitter Developer site.
+  #     uses: ethomson/send-tweet-action@v1.0.0
+  #    with:
+  #     # The status ("tweet") to post to twitter.
+  #    status: "Wordle..."
+  #   # Consumer API key, available in the "Keys and tokens" section of your application in the Twitter Developer site.
+
+#      - name: Send Tweet Action
 #
- #         consumer-key: ${{secrets.TWITTER_API_KEY}}
-  #        # Consumer API secret key, available in the "Keys and tokens" section of your application in the Twitter Developer site.
+#         consumer-key: ${{secrets.TWITTER_API_KEY}}
+#        # Consumer API secret key, available in the "Keys and tokens" section of your application in the Twitter Developer site.
 #
- #         consumer-secret: ${{secrets.TWITTER_API_KEY_SECRET}}
-  #        # Application access token, available in the "Keys and tokens" section of your application in the Twitter Developer site.
+#         consumer-secret: ${{secrets.TWITTER_API_KEY_SECRET}}
+#        # Application access token, available in the "Keys and tokens" section of your application in the Twitter Developer site.
 #
- #         access-token: ${{secrets.TWITTER_ACCESS_TOKEN}}
-  #        # Application access token secret, available in the "Keys and tokens" section of your application in the Twitter Developer site.
+#         access-token: ${{secrets.TWITTER_ACCESS_TOKEN}}
+#        # Application access token secret, available in the "Keys and tokens" section of your application in the Twitter Developer site.
 #
- #         access-token-secret: ${{secrets.TWITTER_ACCESS_TOKEN_SECRET}}
+#         access-token-secret: ${{secrets.TWITTER_ACCESS_TOKEN_SECRET}}

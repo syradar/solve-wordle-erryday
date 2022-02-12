@@ -6,7 +6,7 @@ name: Wordle ErryDay
 # or API.
 on:
   schedule:
-    - cron: 0 8 * * *
+   # - cron: 0 8 * * *
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:

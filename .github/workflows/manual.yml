@@ -5,9 +5,9 @@ name: Wordle ErryDay
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+  schedule:
+    - cron: 0 8 * * *
   workflow_dispatch:
-    schedule:
-      cron: 0 0 * * *
     # Inputs the workflow accepts.
     inputs:
       name:
@@ -22,14 +22,13 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - run: node ${{ github.workspace }}/index.js
-      - name: "Set environmental variables"
+      - id: solver
         run: |
-          echo "TWEET_STATUS=" && node ${{ github.workspace }}/index.js" >> $GITHUB_ENV
-
+          echo "::set-output name=STAT_US::$(node ${{ github.workspace }}/index.js)"
+      
       - name: "Can use environment variables"
         run: |
-          echo "Working variable from variable: $TWEET_STATUS"
+          echo ${{ steps.solver.outputs.STAT_US }}
   #       # You may pin to the exact commit or the version.
   #      # uses: ethomson/send-tweet-action@288f9339e0412e3038dce350e0da5ecdf12133a6
   #     uses: ethomson/send-tweet-action@v1.0.0

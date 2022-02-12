@@ -5,7 +5,7 @@ name: Wordle ErryDay
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  schedule:
+ # schedule:
    # - cron: 0 8 * * *
   workflow_dispatch:
     # Inputs the workflow accepts.
